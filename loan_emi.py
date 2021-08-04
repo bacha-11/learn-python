@@ -7,9 +7,17 @@ def loan_emi(amount, duration, rate, down_payment=0):
     emi = math.ceil(emi)
     return emi
 
-eight_year_result = loan_emi(1260000, 8*12, 10, 3e5)
+
+total_amount = 1260000
+no_of_year = 8*12
+rate_of_interest = 10
+pay_amount = 3e5
+eight_year_result = loan_emi(amount=total_amount, 
+                            duration=no_of_year, 
+                            rate=rate_of_interest, 
+                            down_payment=pay_amount)
 print(eight_year_result)
 
 
-ten_year_result = loan_emi(1260000, 10*12, 8)
+ten_year_result = loan_emi(amount=1260000, duration=10*12, rate=8)
 print(ten_year_result)
