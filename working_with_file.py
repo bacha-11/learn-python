@@ -28,6 +28,12 @@ loan_file1_content = loan_file1.read()
 print(loan_file1_content)
 loan_file1.close()
 
+print('******************************')
+
+#closing file automatically using (with)
+with open('./data/loan2.txt') as loan_file2:
+    loan_file2_content = loan_file2.read()
+    print(loan_file2_content)
 
 
 
