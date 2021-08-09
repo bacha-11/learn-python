@@ -35,6 +35,10 @@ with open('./data/loan2.txt') as loan_file2:
     loan_file2_content = loan_file2.read()
     print(loan_file2_content)
 
+print("*******************************")
 
-
+# read lines in files
+with open('./data/loan3.txt', 'r') as loan_file3:
+    loan_file3_content = loan_file3.readlines()
+    print(loan_file3_content)
 
