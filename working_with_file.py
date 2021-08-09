@@ -22,5 +22,13 @@ url3 = 'https://gist.githubusercontent.com/aakashns/257f6e6c8719c17d0e498ea287d1
 # urlretrieve(url3, './data/loan6.txt')
 
 
+# how to open and close files
+loan_file1 = open('./data/loan1.txt', mode='r')
+loan_file1_content = loan_file1.read()
+print(loan_file1_content)
+loan_file1.close()
+
+
+
 
 
