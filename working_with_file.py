@@ -48,10 +48,24 @@ with open('./data/loan1.txt', 'r' ) as loan_file:
     file_data = loan_file.readlines()
 
 
-def parse_header(file):
-    return file.strip().split()
-
-
+def parse_header(file_line):
+    return file_line.strip().split(',')
 
 header = parse_header(file_data[0])
 print(header)
+
+
+def parse_value(file_line):
+    values = []
+    for item in file_line.strip().split(','):
+        if item == '':
+            values.append(0.0)
+        else:
+            try:
+                values.append(float(item))
+            except:
+                values.append(item)
+    return values
+
+float_num = parse_value(file_data[3])
+print(float_num)
