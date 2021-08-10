@@ -69,3 +69,13 @@ def parse_value(file_line):
 
 float_num = parse_value(file_data[3])
 print(float_num)
+
+
+def create_dict(values, headers):
+    item_dict = {}
+    for value, header in zip(values, headers):
+        item_dict[header] = value
+    return item_dict
+
+show_dict = create_dict(float_num, header)
+print(show_dict)
