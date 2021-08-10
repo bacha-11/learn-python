@@ -1,5 +1,6 @@
 import os
 from urllib.request import urlretrieve
+from loan_emi import loan_emi
 
 # path = os.getcwd()
 # print(path)
@@ -79,3 +80,32 @@ def create_dict(values, headers):
 
 show_dict = create_dict(float_num, header)
 print(show_dict)
+
+
+def read_csv(path):
+    result = []
+    with open(path, 'r') as file:
+        line = file.readlines()
+    
+    headers = parse_header(line[0])
+
+    for item in line[1:]:
+        values = parse_value(item)
+
+        item_dict = create_dict(values, headers)
+        result.append(item_dict)
+    return result
+
+loans = read_csv('./data/loan1.txt')
+
+def compute_emi(loans):
+    for loan in loans:
+        loan['emi'] = loan_emi(loan['amount'],
+                                loan['duration'],
+                                loan['rate']/12,
+                                loan['down_payment'])
+
+
+res = compute_emi(loans)
+print(res)
+print(loans)
