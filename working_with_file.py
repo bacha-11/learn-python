@@ -106,6 +106,16 @@ def compute_emi(loans):
                                 loan['down_payment'])
 
 
-res = compute_emi(loans)
-print(res)
+compute_emi(loans)
 print(loans)
+
+with open('./data/emi1.txt', 'w') as f:
+    for loan in loans:
+        f.write('{},{},{},{},\n'.format(loan['amount'],
+                                        loan['duration'],
+                                        loan['rate'],
+                                        loan['down_payment'],
+                                        loan['emi']))
+
+with open('./data/emi1.txt', 'r') as f:
+    print(f.read())
