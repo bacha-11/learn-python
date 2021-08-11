@@ -1,6 +1,6 @@
 import os
 from urllib.request import urlretrieve
-from loan_emi import loan_emi
+import math
 
 # path = os.getcwd()
 # print(path)
@@ -18,9 +18,9 @@ from loan_emi import loan_emi
 # url3 = 'https://gist.githubusercontent.com/aakashns/257f6e6c8719c17d0e498ea287d1a386/raw/7def9ef4234ddf0bc82f855ad67dac8b971852ef/loans3.txt'
 
 
-# # urlretrieve(url1, './data/loan1.txt')
-# # urlretrieve(url2, './data/loan2.txt')
-# # urlretrieve(url3, './data/loan6.txt')
+# urlretrieve(url1, './data/loan1.txt')
+# urlretrieve(url2, './data/loan2.txt')
+# urlretrieve(url3, './data/loan3.txt')
 
 
 # # how to open and close files
@@ -53,7 +53,7 @@ def parse_header(file_line):
     return file_line.strip().split(',')
 
 header = parse_header(file_data[0])
-print(header)
+# print(header)
 
 
 def parse_value(file_line):
@@ -79,7 +79,7 @@ def create_dict(values, headers):
     return item_dict
 
 show_dict = create_dict(float_num, header)
-print(show_dict)
+# print(show_dict)
 
 
 def read_csv(path):
@@ -98,6 +98,24 @@ def read_csv(path):
 
 loans = read_csv('./data/loan1.txt')
 
+def loan_emi(amount, duration, rate, down_payment=0):
+    """Calculates the equal montly installment (EMI) for a loan.
+    
+    Arguments:
+        amount - Total amount to be spent (loan + down payment)
+        duration - Duration of the loan (in months)
+        rate - Rate of interest (monthly)
+        down_payment (optional) - Optional intial payment (deducted from amount)
+    """
+    rate = (rate/100)*12
+    loan_amount = amount - down_payment
+    try:
+        emi = loan_amount * rate * ((1 + rate)** duration) / (((1 + rate)**duration) - 1)
+    except:
+        emi = loan_amount / duration
+    emi = math.ceil(emi)
+    return emi
+
 def compute_emi(loans):
     for loan in loans:
         loan['emi'] = loan_emi(loan['amount'],
@@ -107,15 +125,40 @@ def compute_emi(loans):
 
 
 compute_emi(loans)
-print(loans)
+# print(loans)
 
-with open('./data/emi1.txt', 'w') as f:
-    for loan in loans:
-        f.write('{},{},{},{},\n'.format(loan['amount'],
-                                        loan['duration'],
-                                        loan['rate'],
-                                        loan['down_payment'],
-                                        loan['emi']))
+# with open('./data/emi1.txt', 'w') as f:
+#     for loan in loans:
+#         f.write('{},{},{},{},\n'.format(loan['amount'],
+#                                         loan['duration'],
+#                                         loan['rate'],
+#                                         loan['down_payment'],
+#                                         loan['emi']))
 
-with open('./data/emi1.txt', 'r') as f:
-    print(f.read())
+# with open('./data/emi1.txt', 'r') as f:
+#     print(f.read())
+
+
+def write_csv(items, path):
+    with open(path, 'w') as f:
+        if len(items) == 0:
+            return
+        
+        headers = list(items[0].keys())
+        f.write(','.join(headers) + '\n')
+
+
+        for item in items:
+            values = []
+            for header in headers:
+                values.append(str(item.get(header, "")))
+            f.write(','.join(values) + '\n')
+
+
+write_csv(loans, './data/emi1.txt')
+
+
+# for i in range(1,4):
+#     loan = read_csv('./data/loan{}.txt'.format(i))
+#     compute_emi(loan)
+#     write_csv(loan, './data/emi{}.txt'.format(i))
