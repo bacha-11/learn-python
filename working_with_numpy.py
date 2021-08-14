@@ -32,7 +32,7 @@ print('Type of kanto is: ', type(kanto))
 print('shape of the matrix: ', kanto.shape)
 print('access with index: ', kanto[0])
 
-print('----------------------------------------')
+print('------------------ Convert python list into array ----------------------')
 
 weight = np.array(weight)
 print('Type of weight is: ', type(weight))
@@ -40,7 +40,7 @@ print('shape of the matrix: ', weight.shape)
 print('access with index: ', weight[1])
 
 
-print('-----------------------------------------')
+print('------------------ opration with numpy array -----------------------')
 
 
 crop_yeild = np.dot(kanto, weight)
@@ -50,5 +50,37 @@ print('calculate crop yeild with dot operation: ', crop_yeild)
 crop_yeild = (weight * kanto).sum()
 print('calculate crop yeild with "*" and sum() operation: ', crop_yeild)
 
+
+
+print('------------------- 1D, 2D, 3D Array ----------------------')
+
+weight = np.array([0.3, 0.2, 0.5])
+print(weight)
+print(weight.shape)
+print(weight.dtype)
+
+climate_data = np.array([[73, 67, 43],
+                        [91, 88, 64],
+                        [87, 134, 58],
+                        [102, 43, 37],
+                        [69, 96, 70]])
+
+print(climate_data)
+print(climate_data.shape)
+print(climate_data.dtype)
+
+
+
+
+arr_3d = np.array([
+    [[11, 22, 33],
+    [11, 22, 33]],
+    [[11, 22, 33],
+    [11, 22, 33]]
+    ])
+
+print(arr_3d)
+print(arr_3d.shape)
+print(arr_3d.dtype)
 
 
