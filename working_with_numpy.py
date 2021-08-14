@@ -84,3 +84,12 @@ print(arr_3d.shape)
 print(arr_3d.dtype)
 
 
+print('------------------- multiply any shape of matrix using matmul and @ ----------------------')
+
+
+crop_yeild = np.matmul(climate_data, weight)
+print('calculate crop yeild using matmul: ', crop_yeild)
+
+
+crop_yeild = climate_data @ weight
+print('calculate crop yeild using @: ', crop_yeild)
