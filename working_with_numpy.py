@@ -40,5 +40,15 @@ print('shape of the matrix: ', weight.shape)
 print('access with index: ', weight[1])
 
 
+print('-----------------------------------------')
+
+
+crop_yeild = np.dot(kanto, weight)
+print('calculate crop yeild with dot operation: ', crop_yeild)
+
+
+crop_yeild = (weight * kanto).sum()
+print('calculate crop yeild with "*" and sum() operation: ', crop_yeild)
+
 
 
