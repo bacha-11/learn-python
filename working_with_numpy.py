@@ -115,3 +115,10 @@ apple = crop_yeild(climate_data, weight)
 print(apple)
 
 
+print('------------------- concatenate two matrix ----------------------')
+
+
+climate_result = np.concatenate((climate_data, apple.reshape(10000, 1)), axis=1)
+print(climate_result)
+
+
