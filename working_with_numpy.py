@@ -93,3 +93,25 @@ print('calculate crop yeild using matmul: ', crop_yeild)
 
 crop_yeild = climate_data @ weight
 print('calculate crop yeild using @: ', crop_yeild)
+
+
+print('------------------- working with file using numpy ----------------------')
+
+
+from urllib.request import urlretrieve
+
+# urlretrieve('https://hub.jovian.ml/wp-content/uploads/2020/08/climate.csv', 
+#     './data/climate.txt')
+
+climate_data = np.genfromtxt('./data/climate.txt', delimiter=',', skip_header=1)
+print(climate_data)
+print(climate_data.shape)
+print(weight.shape)
+
+def crop_yeild(climate, weight):
+    return climate @ weight
+
+apple = crop_yeild(climate_data, weight)
+print(apple)
+
+
