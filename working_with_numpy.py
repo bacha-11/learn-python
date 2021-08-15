@@ -122,3 +122,13 @@ climate_result = np.concatenate((climate_data, apple.reshape(10000, 1)), axis=1)
 print(climate_result)
 
 
+print('------------------- saving file ----------------------')
+
+np.savetxt('./data/climate_result.txt',
+            climate_result,
+            fmt='%.2f',
+            delimiter=',',
+            header='temperature,rainfall,humidity,yeild_apples',
+            comments='')
+
+
