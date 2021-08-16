@@ -163,7 +163,44 @@ arr2 = np.array([4])
 
 print(arr1 + arr2)
 
-arr3 = np.array([1, 2, 3])
-print(arr1 + arr3)
+# arr3 = np.array([1, 2, 3])
+# print(arr1 + arr3)
+
+
+print('------------------- Array Comparison with numpy array ----------------------')
+
+arr1 = np.array([1, 2, 3, 4])
+
+arr2 = np.array([1, 2, 6, 5])
+
+
+print(arr1 == arr2)
+print(arr1 <= arr2)
+print(arr1 != arr2)
+
+
+print('------------------- Array indexing and slicing ----------------------')
+
+
+arr3 = np.array([
+    [[11, 12, 13, 14], 
+     [13, 14, 15, 19]], 
+    
+    [[15, 16, 17, 21], 
+     [63, 92, 36, 18]], 
+    
+    [[98, 32, 81, 23],      
+     [17, 18, 19.5, 43]]])
+
+
+print(arr3[1])
+print(arr3[1:])
+print(arr3[0:, 0:1])
+print(arr3[0:, 1:, 2:])
+print(arr3[1, 1:, 0:2])
+print(arr3[1, 0, 0])
+
+
+
 
 
