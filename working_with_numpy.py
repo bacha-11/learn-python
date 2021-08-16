@@ -152,3 +152,18 @@ print(arr1 % arr2)
 print(arr1 + 1)
 
 
+print('------------------- Array Broadcasting with numpy array ----------------------')
+
+
+arr1 = np.array([[1, 2, 3, 4],
+                [5, 6, 7, 8]])
+
+
+arr2 = np.array([4])
+
+print(arr1 + arr2)
+
+arr3 = np.array([1, 2, 3])
+print(arr1 + arr3)
+
+
