@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.lib.twodim_base import eye
 
 # use python without numpy
 w1, w2, w3 = 0.3, 0.2, 0.5
@@ -201,6 +202,16 @@ print(arr3[1, 1:, 0:2])
 print(arr3[1, 0, 0])
 
 
+print('------------------- Other ways of creating Numpy arrays ----------------------')
 
+
+print(np.zeros((5, 6)))
+print(np.ones((2,2, 3)))
+print(np.eye(5))
+print(np.random.rand(5,2))
+print(np.random.randn(3,3))
+print(np.full([2,3], 7))
+print(np.linspace(2,10,5))
+print(np.arange(1,100, 8))
 
 
