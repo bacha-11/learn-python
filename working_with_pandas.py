@@ -20,9 +20,14 @@ print(covid_df)
 print(covid_df.info())
 
 
-# 
+# use describe to view statistical information about numeric column
 
 print(covid_df.describe())
+
+
+# how to get the list of column names
+
+print(covid_df.columns)
 
 
 
