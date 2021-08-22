@@ -15,4 +15,9 @@ print(type(covid_df))
 print(covid_df)
 
 
+# how to get info about file
+
+print(covid_df.info())
+
+
 
