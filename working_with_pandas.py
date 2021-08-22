@@ -20,4 +20,9 @@ print(covid_df)
 print(covid_df.info())
 
 
+# 
+
+print(covid_df.describe())
+
+
 
