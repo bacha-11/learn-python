@@ -30,4 +30,9 @@ print(covid_df.describe())
 print(covid_df.columns)
 
 
+# find shape of the column and rows
+
+print(covid_df.shape)
+
+
 
