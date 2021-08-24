@@ -45,4 +45,12 @@ print(covid_df['new_cases'])
 print(covid_df['new_cases'][247])
 
 
+# retrieve data using 'at'
+
+
+print(covid_df.at[247, 'new_cases'])
+
+
+
+
 
