@@ -61,5 +61,14 @@ create_copy = covid_df.copy()
 print(create_copy)
 
 
+# Retrieve data with row wise
+
+print(covid_df.loc[1])
+
+print(type(covid_df.loc[1]))
+
+print(covid_df.loc[1:10])
+
+
 
 
