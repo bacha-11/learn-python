@@ -157,4 +157,25 @@ print(covid_df)
 
 # Sorting rows using column values
 
-covid_df.sort_values('new_cases', ascending=False).head(10)
+sort_data_asc = covid_df.sort_values('new_cases', ascending=False).head(10)
+print(sort_data_asc)
+
+sort_data_desc = covid_df.sort_values('new_cases').head(10)
+print(sort_data_desc)
+
+print(covid_df.loc[170:174])
+
+'''
+    For now, let's assume this was indeed a data entry error. We can use one of the 
+    following approaches for dealing with the missing or faulty value:
+
+   1. Replace it with 0.
+   2. Replace it with the average of the entire column
+   3. Replace it with the average of the values on the previous & next date
+   4. Discard the row entirely
+'''
+
+covid_df.at[172, 'new_cases'] = covid_df.at[171, 'new_cases'] + covid_df.at[173, 'new_cases'] / 2
+print(covid_df.loc[170:174])
+
+
