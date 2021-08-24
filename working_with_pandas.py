@@ -130,6 +130,31 @@ high_cases_df = covid_df[covid_df.new_cases > 1000]
 print(high_cases_df)
 
 
+# The data frame contains 72 rows, but only the first & last five rows are displayed by default 
+# with Jupyter for brevity. We can change some display options to view all the rows.
+
+# from IPython.display import display
+# with pd.option_context('display.max_rows', 100):
+#     display(covid_df[covid_df.new_cases > 1000])
+
+
 # find high positive ratio data frame
 high_ratio_df = covid_df[covid_df.new_cases / covid_df.new_tests > positive_rate]
 print(high_ratio_df)
+
+
+# adding and deleting column
+
+# adding
+covid_df['positive_rate'] = covid_df.new_cases / covid_df.new_tests
+print(covid_df)
+
+
+# deleting
+covid_df.drop(columns=['positive_rate'], inplace=True)
+print(covid_df)
+
+
+# Sorting rows using column values
+
+covid_df.sort_values('new_cases', ascending=False).head(10)
