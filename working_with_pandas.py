@@ -1,5 +1,7 @@
+from os import pardir
 from urllib.request import urlretrieve
 from numpy import positive
+from numpy.lib.function_base import cov
 import pandas as pd
 
 #italy_covid_url = 'https://gist.githubusercontent.com/aakashns/f6a004fa20c84fec53262f9a8bfee775/raw/f309558b1cf5103424cef58e2ecb8704dcd4d74c/italy-covid-daywise.csv'
@@ -114,3 +116,20 @@ positive_rate = total_cases / total_tests
 print('positive rate in italy: {:.2f} %'.format(positive_rate*100))
 
 
+# Querying and sorting rows
+
+# one way
+new_data = covid_df.new_cases > 1000
+print(new_data)
+high_cases_df = covid_df[new_data]
+print(high_cases_df)
+
+
+# another way
+high_cases_df = covid_df[covid_df.new_cases > 1000]
+print(high_cases_df)
+
+
+# find high positive ratio data frame
+high_ratio_df = covid_df[covid_df.new_cases / covid_df.new_tests > positive_rate]
+print(high_ratio_df)
