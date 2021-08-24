@@ -75,5 +75,15 @@ print(covid_df.loc[1:10])
 print(covid_df.head(10))
 
 
+# retrieve data from bottom to top using tail
+
+print(covid_df.tail(10))
+
+
+# retrieve a data sample using sample
+
+print(covid_df.sample(10))
+
+
 
 
