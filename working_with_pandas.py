@@ -61,13 +61,18 @@ create_copy = covid_df.copy()
 print(create_copy)
 
 
-# Retrieve data with row wise
+# Retrieve data with row wise unig loc
 
 print(covid_df.loc[1])
 
 print(type(covid_df.loc[1]))
 
 print(covid_df.loc[1:10])
+
+
+# retrieve data from top to bottom using head
+
+print(covid_df.head(10))
 
 
 
