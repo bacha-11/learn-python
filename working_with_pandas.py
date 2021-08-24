@@ -35,4 +35,9 @@ print(covid_df.columns)
 print(covid_df.shape)
 
 
+# Retrieve data from data frame
+
+print(covid_df['new_cases'])
+
+
 
