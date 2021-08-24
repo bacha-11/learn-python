@@ -47,8 +47,12 @@ print(covid_df['new_cases'][247])
 
 # retrieve data using 'at'
 
-
 print(covid_df.at[247, 'new_cases'])
+
+
+# retrieve a list of column data
+
+print(covid_df[['new_cases', 'new_tests']])
 
 
 
