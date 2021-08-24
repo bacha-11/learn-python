@@ -55,6 +55,11 @@ print(covid_df.at[247, 'new_cases'])
 print(covid_df[['new_cases', 'new_tests']])
 
 
+# create a copy of dataframe
+
+create_copy = covid_df.copy()
+print(create_copy)
+
 
 
 
