@@ -1,4 +1,5 @@
 from urllib.request import urlretrieve
+from numpy import positive
 import pandas as pd
 
 #italy_covid_url = 'https://gist.githubusercontent.com/aakashns/f6a004fa20c84fec53262f9a8bfee775/raw/f309558b1cf5103424cef58e2ecb8704dcd4d74c/italy-covid-daywise.csv'
@@ -85,5 +86,31 @@ print(covid_df.tail(10))
 print(covid_df.sample(10))
 
 
+# Analyzing data from data frames
+
+total_cases = covid_df.new_cases.sum()
+print(total_cases)
+
+total_deaths = covid_df.new_deaths.sum()
+print(total_deaths)
+
+total_tests = covid_df.new_tests.sum()
+print(total_tests)
+
+
+test_per_day = total_tests / 248
+print('test per day in italy: {:.2f}'.format(test_per_day))
+
+
+death_rate = total_deaths / total_cases
+print('death rate in italy: {:.2f} %'.format(death_rate*100))
+
+initial_tests = 935310
+total_tests = initial_tests + total_tests
+print('total test in italy: ', total_tests)
+
+
+positive_rate = total_cases / total_tests
+print('positive rate in italy: {:.2f} %'.format(positive_rate*100))
 
 
