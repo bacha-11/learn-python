@@ -40,4 +40,9 @@ print(covid_df.shape)
 print(covid_df['new_cases'])
 
 
+# Retrieve data with index
+
+print(covid_df['new_cases'][247])
+
+
 
