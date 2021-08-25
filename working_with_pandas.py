@@ -220,3 +220,19 @@ print(covid_df.new_cases.sum())
 print(covid_df[covid_df.weekday == 1].new_cases.mean())
 
 
+# Grouping and aggregation
+covid_month_df = covid_df.groupby('month')[['new_cases', 'new_deaths', 'new_tests']].sum()
+print(covid_month_df)
+print(covid_month_df.loc[1])
+
+covid_weekday_df = covid_df.groupby('weekday')[['new_cases', 'new_deaths', 'new_tests']].mean()
+print(covid_weekday_df)
+
+
+covid_df['total_cases'] = covid_df.new_cases.cumsum()
+covid_df['total_deaths'] = covid_df.new_deaths.cumsum()
+covid_df['total_tests'] = covid_df.new_tests.cumsum()
+
+print(covid_df)
+
+
