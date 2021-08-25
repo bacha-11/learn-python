@@ -1,7 +1,7 @@
 from os import pardir
 from urllib.request import urlretrieve
-from numpy import positive
-from numpy.lib.function_base import cov
+from numpy import datetime64, positive
+from numpy.lib.function_base import cov, extract
 import pandas as pd
 
 #italy_covid_url = 'https://gist.githubusercontent.com/aakashns/f6a004fa20c84fec53262f9a8bfee775/raw/f309558b1cf5103424cef58e2ecb8704dcd4d74c/italy-covid-daywise.csv'
@@ -177,5 +177,16 @@ print(covid_df.loc[170:174])
 
 covid_df.at[172, 'new_cases'] = covid_df.at[171, 'new_cases'] + covid_df.at[173, 'new_cases'] / 2
 print(covid_df.loc[170:174])
+
+
+
+# working with dates
+
+date_column = covid_df.date
+print(date_column)
+
+
+
+
 
 
