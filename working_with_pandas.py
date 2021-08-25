@@ -214,4 +214,9 @@ print(covid_may_total)
 covid_may_total = covid_df[covid_df.month == 5][['new_cases', 'new_deaths', 'new_tests']].sum()
 print(covid_may_total)
 
+# other query example
+print(covid_df.new_cases.sum())
+
+print(covid_df[covid_df.weekday == 1].new_cases.mean())
+
 
