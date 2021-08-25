@@ -190,11 +190,28 @@ covid_df['date'] = pd.to_datetime(date_column)
 print(covid_df.date)
 
 
-# extract day, weekday, month, year
+# extract day, weekday, month, year using DatetimeIndex()
 covid_df['day'] = pd.DatetimeIndex(covid_df.date).day
 covid_df['weekday'] = pd.DatetimeIndex(covid_df.date).weekday
 covid_df['month'] = pd.DatetimeIndex(covid_df.date).month
 covid_df['year'] = pd.DatetimeIndex(covid_df.date).year
 print(covid_df)
+
+
+
+# query the covid_df dataframe where month equal to 5 and create new df name as covid_df_may 
+covid_df_may = covid_df[ covid_df.month == 5]
+print(covid_df_may)
+
+covid_df_may_matrix = covid_df_may[['new_cases', 'new_deaths', 'new_tests']]
+print(covid_df_may_matrix)
+
+covid_may_total = covid_df_may_matrix.sum()
+print(covid_may_total)
+
+
+# combine all the above queries
+covid_may_total = covid_df[covid_df.month == 5][['new_cases', 'new_deaths', 'new_tests']].sum()
+print(covid_may_total)
 
 
