@@ -236,3 +236,28 @@ covid_df['total_tests'] = covid_df.new_tests.cumsum()
 print(covid_df)
 
 
+
+# Merging data from multiple sources
+
+
+# urlretrieve('https://gist.githubusercontent.com/aakashns/8684589ef4f266116cdce023377fc9c8/raw/99ce3826b2a9d1e6d0bde7e9e559fc8b6e9ac88b/locations.csv', 
+#             './data/locations.csv')
+
+location_df = pd.read_csv('./data/locations.csv')
+print(location_df)
+
+get_italy_location = location_df[location_df.location == 'Italy']
+print(get_italy_location)
+
+covid_df['location'] = 'Italy'
+
+merge_df = covid_df.merge(location_df, on='location')
+print(merge_df)
+
+
+merge_df['cases_per_million'] = merge_df.new_cases * 1e6 / merge_df.population
+merge_df['death_per_million'] = merge_df.new_deaths * 1e6 / merge_df.population
+merge_df['test_per_million'] = merge_df.new_tests * 1e6 / merge_df.population
+
+print('merge_df')
+
