@@ -251,6 +251,7 @@ print(get_italy_location)
 
 covid_df['location'] = 'Italy'
 
+
 merge_df = covid_df.merge(location_df, on='location')
 print(merge_df)
 
@@ -260,4 +261,20 @@ merge_df['death_per_million'] = merge_df.new_deaths * 1e6 / merge_df.population
 merge_df['test_per_million'] = merge_df.new_tests * 1e6 / merge_df.population
 
 print('merge_df')
+
+
+# Writing data back to files
+
+result = merge_df[['date',
+                       'new_cases', 
+                       'total_cases', 
+                       'new_deaths', 
+                       'total_deaths', 
+                       'new_tests', 
+                       'total_tests', 
+                       'cases_per_million', 
+                       'death_per_million', 
+                       'test_per_million']]
+
+result.to_csv('./data/italy_covid_result.csv', index=None)
 
