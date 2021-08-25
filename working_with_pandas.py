@@ -185,6 +185,9 @@ print(covid_df.loc[170:174])
 date_column = covid_df.date
 print(date_column)
 
+# convert dtype: object into datetime64
+covid_df['date'] = pd.to_datetime(date_column)
+print(covid_df.date)
 
 
 
