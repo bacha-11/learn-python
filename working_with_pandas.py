@@ -190,6 +190,11 @@ covid_df['date'] = pd.to_datetime(date_column)
 print(covid_df.date)
 
 
-
+# extract day, weekday, month, year
+covid_df['day'] = pd.DatetimeIndex(covid_df.date).day
+covid_df['weekday'] = pd.DatetimeIndex(covid_df.date).weekday
+covid_df['month'] = pd.DatetimeIndex(covid_df.date).month
+covid_df['year'] = pd.DatetimeIndex(covid_df.date).year
+print(covid_df)
 
 
